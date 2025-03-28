@@ -51,4 +51,15 @@ export default tseslint.config({
     ...reactDom.configs.recommended.rules,
   },
 })
-```
+General layout:
+- header: logo, menu, search, book service
+- banner slide
+- content:
++ RegisterRoom: checkin, checkout, guest, children
++ About us
++ Popular
++ Our Room
++ ShortFilm
++ Rate
++ BLog
+- Footer: Logo, network, contact, room, links, form, copyright
