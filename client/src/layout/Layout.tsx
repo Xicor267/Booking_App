@@ -8,11 +8,11 @@ import { Header } from './header/Header'
 
 export const Layout: FC = () => {
   return (
-    <Flex vertical>
+    <div className='layout'>
       <Header />
       <Banner />
       <Content />
       <Footer />
-    </Flex>
+    </div>
   )
 }

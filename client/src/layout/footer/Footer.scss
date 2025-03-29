@@ -1,0 +1,13 @@
+.footer {
+  padding: 40px 0px 70px;
+
+  .footer--network {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+  }
+
+  .footer--info {
+    padding: 40px;
+    // width: calc(100% / 4);
+  }
+}

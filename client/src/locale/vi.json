@@ -14,5 +14,35 @@
     "title": "Đặt phòng khách sạn",
     "slogan": "Làm cho cuộc sống của bạn tốt đẹp và tươi sáng hơn! Bạn phải đi du lịch cùng chúng tôi!",
     "booking.button": "Đặt phòng"
-    }
+  },
+  "page.footer": {
+    "contact": "Liên hệ",
+    "contact.title": "Cửa hàng trực tuyến với nhiều tính năng độc quyền và thú vị",
+    "contact.address": "Cẩm Lệ, Thành phố Đà Nẵng, Việt Nam",
+    "contact.phone": "+84372928669",
+    "contact.email": "nguyennamnvl267@gmail.com",
+    "destination": "Điểm đến",
+    "usefullink": "Liên kết hữu ích",
+    "usefullink.aboutus": "Giới thiệu",
+    "usefullink.ouroffer": "Ưu đãi của chúng tôi",
+    "usefullink.howspread": "Cách lan truyền",
+    "usefullink.contactus": "Liên hệ với chúng tôi",
+    "usefullink.outevent": "Sự kiện của chúng tôi",
+    "form": "Bản tin",
+    "form.name": "Tên người dùng",
+    "form.email": "Email",
+    "form.name.input": "Tên",
+    "form.subject": "Chủ đề",
+    "form.message": "Tin nhắn",
+    "form.name.validation": "Vui lòng nhập Tên của bạn!",
+    "form.email.validation": "Vui lòng nhập E-mail của bạn!",
+    "form.email.notvalid": "E-mail không hợp lệ!",
+    "form.subject.validation": "Vui lòng nhập Chủ đề của bạn!",
+    "form.object.validation": "Vui lòng nhập Tin nhắn của bạn!",
+    "form.submit.form": "Gửi",
+    "form.submit.send.successful": "Gửi thành công",
+    "form.submit.send.failed": "Gửi không thành công",
+    "form.submit.send.desc": "Bao gồm Tên, Email, Chủ đề, Tin nhắn",
+    "form.submit.send.hint": "*Gửi biểu mẫu này để liên hệ trực tiếp với tôi."
+  }
 }

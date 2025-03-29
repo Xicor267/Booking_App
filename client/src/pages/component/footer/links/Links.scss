@@ -1,0 +1,9 @@
+.footer-link--text {
+  color: #fff;
+  font-size: 18px;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
