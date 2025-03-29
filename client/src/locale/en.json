@@ -1,0 +1,18 @@
+{
+  "page.header": {
+    "home": "Home",
+    "room": "Room",
+    "destination": "Destination",
+    "service": "Service",
+    "blog": "Blog",
+    "contact": "Contact",
+    "search": "Search for something",
+    "register": "Sign up",
+    "login": "Sign in"
+  },
+  "page.banner": {
+    "title": "Hotel Booking",
+    "slogan": "Make Your Life Better and Bright! You must trip with Us!",
+    "booking.button": "Book a room"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "page.header": {
+    "home": "Trang chủ",
+    "room": "Phòng",
+    "destination": "Điểm đến",
+    "service": "Dịch vụ",
+    "blog": "Blog",
+    "contact": "Liên hệ",
+    "search": "Tìm kiếm cái gì đó",
+    "register": "Đăng ký",
+    "login": "Đăng nhập"
+  },
+  "page.banner": {
+    "title": "Đặt phòng khách sạn",
+    "slogan": "Làm cho cuộc sống của bạn tốt đẹp và tươi sáng hơn! Bạn phải đi du lịch cùng chúng tôi!",
+    "booking.button": "Đặt phòng"
+    }
+}

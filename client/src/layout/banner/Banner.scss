@@ -1,0 +1,37 @@
+.carousel {
+  .carousel--container {
+    position: relative;
+
+    .carousel--banner {
+      height: 700px;
+      line-height: 400px;
+
+      .carousel--slide {
+        height: 100%;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .carousel--content {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    text-align: left; 
+
+    .carousel--button {
+      width: 180px;
+      padding: 1.2rem;
+      font-size: 18px;
+      color: rgb(0, 214, 144);
+      border: 1px solid rgb(0, 214, 144);
+
+      &:hover {
+        background: rgb(0, 214, 144);
+        color: #fff;
+        border: 1px solid rgb(0, 214, 144);
+      }
+    }
+  }
+}

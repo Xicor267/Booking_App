@@ -1,0 +1,11 @@
+.menu-item {
+  .menu-item--text {
+    font-size: 18px !important;
+    margin-bottom: 0 !important;
+
+    &:hover {
+      color: rgb(0, 214, 144);
+      cursor: pointer;
+    }
+  }
+}

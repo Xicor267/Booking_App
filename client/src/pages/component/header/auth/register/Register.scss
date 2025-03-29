@@ -1,0 +1,10 @@
+.register {
+  .register--text {
+    font-size: 18px;
+
+    &:hover {
+      color: rgb(0, 214, 144);
+      cursor: pointer;
+    }
+  }
+}
