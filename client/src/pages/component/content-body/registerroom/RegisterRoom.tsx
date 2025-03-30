@@ -21,7 +21,7 @@ export const RegisterRoom: FC = () => {
         <DatePicker
           value={checkInDate ? dayjs(checkInDate, 'MM/DD/YYYY') : null}
           format="MM/DD/YYYY"
-          onChange={(date, dateString) => {
+          onChange={(_, dateString) => {
             if (typeof dateString === 'string') {
               setCheckInDate(dateString);
             }
@@ -38,7 +38,7 @@ export const RegisterRoom: FC = () => {
         <DatePicker
           value={checkOutDate ? dayjs(checkOutDate, 'MM/DD/YYYY') : null}
           format="MM/DD/YYYY"
-          onChange={(date, dateString) => {
+          onChange={(_, dateString) => {
             if (typeof dateString === 'string') {
               setCheckOutDate(dateString);
             }

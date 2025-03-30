@@ -1,13 +1,11 @@
-import { CheckOutlined, CloseOutlined, ContactsOutlined, PhoneOutlined } from '@ant-design/icons'
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons'
 import emailjs from '@emailjs/browser'
 import { Button, Flex, Form, Input } from 'antd'
 import { FC, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FaRegMap } from "react-icons/fa6"
 import { useDispatch } from 'react-redux'
 import { showNotification } from '../../../../redux/slice/notificationSlice'
 import { CardInfo } from '../../../common/footer/cardinfo/CardInfo'
-import { ContactCard } from '../../../common/footer/contactcard/ContactCard'
 import "./Form.scss"
 
 export const FormFooter: FC = () => {
@@ -39,21 +37,6 @@ export const FormFooter: FC = () => {
       },
     },
   };
-
-  const getContactCard = [
-    {
-      icon: <ContactsOutlined style={{ fontSize: 40, color: "#2c98f0" }} />,
-      content: "nguyennamnvl267@gmail.com"
-    },
-    {
-      icon: <PhoneOutlined style={{ fontSize: 40, color: "#2c98f0" }} />,
-      content: "+84372928669"
-    },
-    {
-      icon: <FaRegMap style={{ fontSize: 40, color: "#2c98f0" }} />,
-      content: t("page.footer.form.address")
-    },
-  ]
 
   const onFinish = (values: any) => {
     setLoadingSubmit(true);

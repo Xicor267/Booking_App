@@ -1,4 +1,3 @@
-import { Flex } from 'antd'
 import { FC } from 'react'
 import "./Layout.scss"
 import { Banner } from './banner/Banner'
