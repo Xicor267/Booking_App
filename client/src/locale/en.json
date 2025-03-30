@@ -44,5 +44,12 @@
     "form.submit.send.failed": "Send failed",
     "form.submit.send.desc": "Includes Name, Email, Subject, Message.",
     "form.submit.send.hint": "*Submit this form to contact me directly."
+  },
+  "page.content": {
+    "form.booking.room.checkin": "Check - In",
+    "form.booking.room.checkout": "Check - out",
+    "form.booking.room.guest": "Guest",
+    "form.booking.room.children": "Children",
+    "form.booking.room.check": "Check Availability"
   }
 }

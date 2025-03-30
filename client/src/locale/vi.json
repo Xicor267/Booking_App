@@ -44,5 +44,12 @@
     "form.submit.send.failed": "Gửi không thành công",
     "form.submit.send.desc": "Bao gồm Tên, Email, Chủ đề, Tin nhắn",
     "form.submit.send.hint": "*Gửi biểu mẫu này để liên hệ trực tiếp với tôi."
+  },
+  "page.content": {
+    "form.booking.room.checkin": "Nhận phòng",
+    "form.booking.room.checkout": "Trả phòng",
+    "form.booking.room.guest": "Khách",
+    "form.booking.room.children": "Trẻ em",
+    "form.booking.room.check": "Kiểm tra phòng trống"
   }
 }

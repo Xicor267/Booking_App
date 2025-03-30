@@ -1,0 +1,48 @@
+.register-room {
+  display: flex;
+  align-items: center;
+  margin: 24px 40px;
+
+  .register-room--card {
+    flex: 1;
+  }
+
+  .booking-room-card {
+    .booking-room-card--text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #6b7280;
+      text-transform: uppercase;
+    }
+
+    .ant-picker,
+    .ant-select {
+
+      .ant-picker-input,
+      .ant-select-selector {
+        border: none !important;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1f2937;
+      }
+
+      .ant-picker-suffix,
+      .ant-select-suffix {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .check-availability-btn {
+    background-color: #34d399;
+    border: none;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 24px;
+
+    &:hover {
+      background-color: #2cc084;
+    }
+  }
+}

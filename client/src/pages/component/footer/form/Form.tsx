@@ -165,7 +165,7 @@ export const FormFooter: FC = () => {
             <Input.TextArea />
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit" loading={loadingSubmit}>
+            <Button style={{background: "rgb(0, 214, 144)", color: "#fff"}} htmlType="submit" loading={loadingSubmit}>
               {t("page.footer.form.submit.form")}
             </Button>
           </Form.Item>
