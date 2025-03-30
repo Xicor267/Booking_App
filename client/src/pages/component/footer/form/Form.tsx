@@ -159,6 +159,7 @@ export const FormFooter: FC = () => {
 
   return (
     <Flex vertical gap={"1rem"} className="contact">
+      {}
       <CardInfo
         title={'page.footer.form'}
         chidren={renderForm()}

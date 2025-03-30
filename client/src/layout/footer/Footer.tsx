@@ -1,13 +1,13 @@
 import { Flex, Typography } from 'antd'
 import { FC } from 'react'
 import { Contact } from '../../pages/component/footer/contact/Contact'
+import { Copyright } from '../../pages/component/footer/copyright/Copyright'
 import { FormFooter } from '../../pages/component/footer/form/Form'
 import { Links } from '../../pages/component/footer/links/Links'
 import { Network } from '../../pages/component/footer/network/Network'
 import { Room } from '../../pages/component/footer/room/Room'
 import { Images } from '../../utils/imageLoader'
 import "./Footer.scss"
-import { Copyright } from '../../pages/component/footer/copyright/Copyright'
 
 export const Footer: FC = () => {
   const { Title } = Typography
