@@ -82,84 +82,85 @@ export const FormFooter: FC = () => {
   const renderForm = () => {
     return (
       <Flex vertical gap={"2rem"}>
-        <Flex justify='center'>
+        <Flex justify='flex-start'>
           <div style={{ fontStyle: "italic", color: "#FA5F5F", fontSize: 15 }}>{t("page.footer.form.submit.send.hint")}</div>
         </Flex>
-        <Form
-          {...formItemLayout}
-          id="contact-form"
-          form={form}
-          name="submit"
-          onFinish={onFinish}
-          style={{ maxWidth: 600 }}
-          scrollToFirstError
-          size="large"
-        >
-          <Form.Item
-            name="name"
-            label={t("page.footer.form.name.input")}
-            rules={[
-              {
-                required: true,
-                message: t("page.footer.form.name.validation"),
-              },
-            ]}
+        <Flex justify='flex-start'>
+          <Form
+            {...formItemLayout}
+            id="contact-form"
+            form={form}
+            name="submit"
+            onFinish={onFinish}
+            style={{ maxWidth: 600 }}
+            scrollToFirstError
+            size="large"
           >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="email"
-            label={t("page.footer.form.email")}
-            rules={[
-              {
-                type: 'email',
-                message: t("page.footer.form.email.notvalid"),
-              },
-              {
-                required: true,
-                message: t("page.footer.form.email.validation"),
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="subject"
-            label={t("page.footer.form.subject")}
-            rules={[
-              {
-                required: true,
-                message: t("page.footer.form.subject.validation"),
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="message"
-            label={t("page.footer.form.message")}
-            rules={[
-              {
-                required: true,
-                message: t("page.footer.form.object.validation"),
-              },
-            ]}
-          >
-            <Input.TextArea />
-          </Form.Item>
-          <Form.Item {...tailFormItemLayout}>
-            <Button style={{background: "rgb(0, 214, 144)", color: "#fff"}} htmlType="submit" loading={loadingSubmit}>
-              {t("page.footer.form.submit.form")}
-            </Button>
-          </Form.Item>
-        </Form>
+            <Form.Item
+              name="name"
+              label={t("page.footer.form.name.input")}
+              rules={[
+                {
+                  required: true,
+                  message: t("page.footer.form.name.validation"),
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="email"
+              label={t("page.footer.form.email")}
+              rules={[
+                {
+                  type: 'email',
+                  message: t("page.footer.form.email.notvalid"),
+                },
+                {
+                  required: true,
+                  message: t("page.footer.form.email.validation"),
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="subject"
+              label={t("page.footer.form.subject")}
+              rules={[
+                {
+                  required: true,
+                  message: t("page.footer.form.subject.validation"),
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              name="message"
+              label={t("page.footer.form.message")}
+              rules={[
+                {
+                  required: true,
+                  message: t("page.footer.form.object.validation"),
+                },
+              ]}
+            >
+              <Input.TextArea />
+            </Form.Item>
+            <Form.Item {...tailFormItemLayout}>
+              <Button style={{ background: "rgb(0, 214, 144)", color: "#fff" }} htmlType="submit" loading={loadingSubmit}>
+                {t("page.footer.form.submit.form")}
+              </Button>
+            </Form.Item>
+          </Form>
+        </Flex>
       </Flex>
     )
   }
 
   return (
     <Flex vertical gap={"1rem"} className="contact">
-      {}
       <CardInfo
         title={'page.footer.form'}
         chidren={renderForm()}
