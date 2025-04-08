@@ -1,4 +1,3 @@
-import { Images } from "~/utils/imageLoader";
 
 export const verticalRoomList = [
     {

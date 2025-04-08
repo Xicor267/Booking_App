@@ -1,11 +1,9 @@
 import { Breadcrumb } from 'antd';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import './Breadcrumbs.scss';
 
 export const Breadcrumbs: FC = () => {
-  const { t } = useTranslation();
   const location = useLocation();
   const pathSnippets = location.pathname.split('/').filter((i) => i);
 
