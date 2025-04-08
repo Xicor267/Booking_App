@@ -1,0 +1,19 @@
+.room-list {
+  padding: 0 40px;
+
+  .room-list--view-switch {
+    .room-list--available-rooms {
+      font-size: 20px;
+      font-weight: 600;
+      font-style: italic;
+    }
+    .room-list--switch {
+      font-size: 24px;
+      
+    }
+  }
+
+  .room-list--content {
+    margin-top: 24px;
+  }
+}

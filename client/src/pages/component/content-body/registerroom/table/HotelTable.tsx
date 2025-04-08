@@ -1,6 +1,6 @@
 import { Table, TableProps } from 'antd';
 import { useEffect, useState } from 'react';
-import HotelService from '~/api/content/bookingroom/hotelApi';
+import hotelService from '~/api/content/bookingroom/hotelApi';
 import { IHotelRoomType } from '~/api/types/bookingroom/IHotelRoomType';
 
 export const HotelTable = () => {
@@ -12,7 +12,7 @@ export const HotelTable = () => {
 
   const getData = async () => {
     try {
-      const response = await HotelService.getHotelRoom();
+      const response = await hotelService.getHotelRoom();
       setHotelList(response);
     } catch (error) {
       console.error('Error fetching hotels:', error);
@@ -22,8 +22,8 @@ export const HotelTable = () => {
   const columns: TableProps<IHotelRoomType>['columns'] = [
     {
       title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
+      dataIndex: 'hotelId',
+      key: 'hotelId',
     },
     {
       title: 'Name',
@@ -44,7 +44,7 @@ export const HotelTable = () => {
 
   const renderColumnData = hotelList?.map((item) => (
     {
-      id: item.id,
+      hotelId: item.hotelId,
       name: item.name,
       location: item.location,
       rating: item.rating

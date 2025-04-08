@@ -3,7 +3,7 @@ import { Button, DatePicker, Flex, Select } from 'antd';
 import dayjs from 'dayjs';
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BookingRoom } from '../../../common/content/bookingroomcard/BookingRoom';
+import { BookingRoom } from '~/pages/common/content/bookingroomcard/BookingRoom';
 import "./RegisterRoom.scss";
 import { HotelTable } from './table/HotelTable';
 
@@ -88,16 +88,18 @@ export const RegisterRoom: FC = () => {
   ];
 
   return (
-    <Flex vertical gap={24}>
+    <Flex vertical>
       <Flex vertical={false} gap={16} className="register-room">
-        {itemBookingRoomCard.map((item, index) => (
-          <Flex key={index} className="register-room--card">
-            <BookingRoom
-              icon={item.icon}
-              title={item.title}
-              dropdown={item.dropdown} />
-          </Flex>
-        ))}
+        <Flex className="register-room--cards-container">
+          {itemBookingRoomCard.map((item, index) => (
+            <Flex key={index} className="register-room--card">
+              <BookingRoom
+                icon={item.icon}
+                title={item.title}
+                dropdown={item.dropdown} />
+            </Flex>
+          ))}
+        </Flex>
         <Button type="primary" className="check-availability-btn">
           {t("page.content.form.booking.room.check")}
         </Button>

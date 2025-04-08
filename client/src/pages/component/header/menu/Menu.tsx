@@ -1,9 +1,9 @@
-import { Flex, Typography } from 'antd'
-import { FC } from 'react'
-import { useTranslation } from 'react-i18next'
-import { MenuItem } from '../../../common/header/menuitem/MenuItem'
-import { menuCategory } from '../../../mockup/header'
-import "./Menu.scss"
+import { Flex, Typography } from 'antd';
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { MenuItem } from '~/pages/common/header/menuitem/MenuItem';
+import { menuCategory } from '~/pages/mockup/header';
+import "./Menu.scss";
 
 const { Title } = Typography;
 export const Menu: FC = () => {

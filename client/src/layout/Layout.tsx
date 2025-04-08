@@ -1,13 +1,12 @@
+import { Flex, notification } from 'antd'
 import { FC, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { hideNotification } from '../redux/slice/notificationSlice'
+import { RootState } from '../redux/store'
 import "./Layout.scss"
-import { Banner } from './banner/Banner'
 import { Content } from './content/Content'
 import { Footer } from './footer/Footer'
 import { Header } from './header/Header'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../redux/store'
-import { notification } from 'antd'
-import { hideNotification } from '../redux/slice/notificationSlice'
 
 export const Layout: FC = () => {
   const { message, description, icon, visible } = useSelector((state: RootState) => state.notification);
@@ -28,12 +27,11 @@ export const Layout: FC = () => {
   }, [visible, api, message, description]);
 
   return (
-    <div className='layout'>
+    <Flex vertical className='layout'>
       {contextHolder}
       <Header />
-      <Banner />
       <Content />
       <Footer />
-    </div>
+    </Flex>
   )
 }

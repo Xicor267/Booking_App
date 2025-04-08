@@ -9,7 +9,7 @@ import "./Header.scss"
 
 export const Header: FC = () => {
   return (
-    <Flex vertical={false} justify='space-between' className='header'>
+    <Flex vertical={false} gap={8} justify='space-between' className='header'>
       <Logo />
       <Menu />
       <Flex gap={16}>

@@ -1,5 +1,5 @@
 export interface IHotelRoomType {
-  id: number;
+  hotelId: number;
   name: string;
   location: string;
   rating: number;
