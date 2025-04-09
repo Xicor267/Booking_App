@@ -6,6 +6,10 @@ const roomService = {
     return axiosClient.get("/room")
   },
 
+  getRoomListById: (roomId: string): Promise<IRoomList> => {
+    return axiosClient.get(`/room/${roomId}`);
+  },
+
   postRoom: (param: IRoomList[]) => {
     return axiosClient.post("room", param)
   }

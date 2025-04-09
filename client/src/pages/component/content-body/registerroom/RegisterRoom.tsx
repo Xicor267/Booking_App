@@ -3,6 +3,7 @@ import { Button, DatePicker, Flex, Select } from 'antd';
 import dayjs from 'dayjs';
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { IoLocationOutline } from "react-icons/io5";
 import { BookingRoom } from '~/pages/common/content/bookingroomcard/BookingRoom';
 import "./RegisterRoom.scss";
 import { HotelTable } from './table/HotelTable';
@@ -12,9 +13,36 @@ export const RegisterRoom: FC = () => {
   const [checkOutDate, setCheckOutDate] = useState<string>('03/29/2025');
   const [guests, setGuests] = useState<number>(2);
   const [children, setChildren] = useState<number>(1);
+  const [location, setLocation] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
   const { t } = useTranslation();
 
+  const handleCheckRoom = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }
+
   const itemBookingRoomCard = [
+    {
+      icon: <IoLocationOutline style={{ fontSize: 20, color: '#6B7280' }} />,
+      title: "Location",
+      dropdown: (
+        <Select
+          value={location}
+          onChange={(value) => setLocation(value)}
+          suffixIcon={<DownOutlined style={{ color: '#6B7280' }} />}
+          style={{ width: '140px', border: 'none' }}
+          options={[
+            { value: 0, label: 'Da Nang' },
+            { value: 1, label: 'Ha Noi' },
+            { value: 2, label: 'Ho Chi Minh' },
+            { value: 3, label: 'Hai Phong' },
+          ]}
+        />
+      ),
+    },
     {
       icon: <CalendarOutlined style={{ fontSize: 20, color: '#6B7280' }} />,
       title: 'page.content.form.booking.room.checkin',
@@ -100,7 +128,7 @@ export const RegisterRoom: FC = () => {
             </Flex>
           ))}
         </Flex>
-        <Button type="primary" className="check-availability-btn">
+        <Button type="primary" loading={loading} onClick={handleCheckRoom} className="check-availability-btn">
           {t("page.content.form.booking.room.check")}
         </Button>
       </Flex>
