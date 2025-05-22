@@ -1,12 +1,10 @@
 import { Button, Card, Checkbox, Form, Input, Row, Typography } from 'antd';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 const { Title, Text } = Typography;
 
 const LoginPage: FC = () => {
-    const { t } = useTranslation()
     const onFinish = (values: any) => {
         console.log('Success:', values);
     };
