@@ -1,0 +1,22 @@
+.back-to-home-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgb(0, 214, 144) !important;
+    color: white !important;
+    border-color: rgb(0, 214, 144) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,214,144,0.2);
+  }
+}
