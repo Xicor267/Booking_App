@@ -1,27 +1,24 @@
-import { SmileOutlined } from '@ant-design/icons'
-import { Flex, Typography, notification } from 'antd'
+import { Flex, Typography } from 'antd'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import "./Register.scss"
 
 const { Text } = Typography
+
 export const Register: FC = () => {
   const { t } = useTranslation()
-  const [api, contextHolder] = notification.useNotification();
+  const navigate = useNavigate()
 
-  const openNotification = () => {
-    api.open({
-      message: 'Notification',
-      description:
-        'Feature is under development. Please contact Nguyen Phuong Nam.',
-      icon: <SmileOutlined style={{ color: 'rgb(0, 214, 144)' }} />,
-    });
-  };
+  const handleClick = () => {
+    navigate('/register')
+  }
 
   return (
     <Flex className='register'>
-      {contextHolder}
-      <Text className='register--text' onClick={openNotification}>{t("page.header.register")}</Text>
-    </Flex>
+      <Text className='register--text' onClick={handleClick}>
+        {t("page.header.register")}
+      </Text>
+    </Flex >
   )
 }
