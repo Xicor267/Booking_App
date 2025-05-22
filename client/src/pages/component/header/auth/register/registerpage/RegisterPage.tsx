@@ -1,13 +1,24 @@
-import { Card, Form, Input, Button, Typography, Row } from 'antd';
-import { Link } from 'react-router-dom';
+import { Button, Card, Form, Input, Row, Typography } from 'antd';
 import { FC } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { BackToHome } from '../../backtohome/BackToHome';
 
 const { Title, Text } = Typography;
 
 const RegisterPage: FC = () => {
-  const onFinish = (values: any) => {
-    console.log('Registration values:', values);
+  const navigate = useNavigate();
+
+  const onFinish = async (values: any) => {
+    try {
+      // Your registration logic here
+      console.log('Registration values:', values);
+
+      // After successful registration, redirect to verification page
+      navigate('/verify-account');
+    } catch (error) {
+      // Handle registration error
+      console.error('Registration failed:', error);
+    }
   };
 
   return (
