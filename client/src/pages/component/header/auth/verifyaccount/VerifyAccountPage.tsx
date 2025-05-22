@@ -1,13 +1,11 @@
 import { MailOutlined } from '@ant-design/icons';
 import { Button, Card, Form, Input, Row, Space, Typography } from 'antd';
 import { FC, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { BackToHome } from '../backtohome/BackToHome';
 
 const { Title, Text } = Typography;
 
 const VerifyAccountPage: FC = () => {
-    const navigate = useNavigate();
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
     const [countdown, setCountdown] = useState(0);
