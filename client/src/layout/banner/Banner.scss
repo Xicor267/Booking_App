@@ -18,7 +18,12 @@
     position: absolute;
     top: 35%;
     left: 5%;
-    text-align: left; 
+    text-align: left;
+
+    h1 {
+      font-size: 95px;
+      color: #fff;
+    }
 
     .carousel--button {
       width: 180px;
@@ -31,6 +36,54 @@
         background: rgb(0, 214, 144);
         color: #fff;
         border: 1px solid rgb(0, 214, 144);
+      }
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    .carousel--banner {
+      height: 500px;
+    }
+
+    .carousel--content {
+      top: 30%;
+      left: 5%;
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .carousel--button {
+        width: 150px;
+        padding: 1rem;
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carousel--banner {
+      height: 300px;
+    }
+
+    .carousel--content {
+      top: 25%;
+      left: 5%;
+      text-align: center;
+
+      h1 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .carousel--button {
+        width: 180px;
+        padding: 0.8rem;
+        font-size: 18px;
       }
     }
   }
