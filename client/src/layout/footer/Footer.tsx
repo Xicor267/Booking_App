@@ -1,5 +1,6 @@
 import { Flex, Typography } from 'antd'
 import { FC } from 'react'
+import { ActiveUser } from '~/pages/component/footer/activeuser/ActiveUser'
 import { Contact } from '~/pages/component/footer/contact/Contact'
 import { Copyright } from '~/pages/component/footer/copyright/Copyright'
 import { FormFooter } from '~/pages/component/footer/form/Form'
@@ -27,6 +28,7 @@ export const Footer: FC = () => {
         <div className="footer--item"><Room /></div>
         <div className="footer--item"><Links /></div>
         <div className="footer--item"><FormFooter /></div>
+        <div className="footer--item"><ActiveUser /></div>
       </Flex>
       <Copyright />
     </Flex>
