@@ -1,30 +1,81 @@
-import { Button, Card, Form, Input, Row, Typography } from 'antd';
-import { FC } from 'react';
+import { CheckOutlined, CloseOutlined, SyncOutlined } from '@ant-design/icons';
+import { Button, Card, Form, Input, notification, Row, Typography } from 'antd';
+import { FC, useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import authService from '~/api/content/auth/authApi';
+import { IUserType } from '~/api/types/register/IUserType';
+import { hideNotification, showNotification } from '~/redux/slice/notificationSlice';
+import { RootState } from '~/redux/store';
 import { BackToHome } from '../../backtohome/BackToHome';
+import './RegisterPage.scss';
 
 const { Title, Text } = Typography;
 
 const RegisterPage: FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
+  const [userData, setUserData] = useState<IUserType[]>([]);
+  console.log("🚀 ~ userData:", userData)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const { message, description, icon, visible } = useSelector((state: RootState) => state.notification);
+  const [api, contextHolder] = notification.useNotification();
+
+  useEffect(() => {
+    if (visible) {
+      api.open({
+        message,
+        description,
+        icon,
+        showProgress: true,
+        onClose: () => dispatch(hideNotification()),
+      });
+    }
+  }, [visible, api, message, description]);
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const getUser = useCallback(() => {
+    authService.getUser()
+      .then(result => {
+        setUserData(result);
+      })
+  }, [])
 
   const onFinish = async (values: any) => {
-    try {
-      // Your registration logic here
-      console.log('Registration values:', values);
+    setIsLoading(true);
+    const result = await authService.addUser(values)
+      .then(result => {
+        console.log('SUCCESS!', result);
+        dispatch(showNotification({
+          message: t("page.footer.form.submit.send.successful"),
+          description: "You have successfully registered an account. Please check your email for verification.",
+          icon: <CheckOutlined style={{ background: '#52c41a', borderRadius: '50%', color: '#fff' }} />,
+        }));
+        navigate('/verify-account');
+      }).catch((error) => {
+        console.error('FAILED...', error.text);
+        dispatch(showNotification({
+          message: t("page.footer.form.submit.send.failed"),
+          description: "Your account registration was unsuccessful.",
+          icon: <CloseOutlined style={{ background: '#ff4d4f', borderRadius: '50%', color: '#fff' }} />,
+        }));
+      }).finally(() => {
+        setIsLoading(false);
+      });
 
-      // After successful registration, redirect to verification page
-      navigate('/verify-account');
-    } catch (error) {
-      // Handle registration error
-      console.error('Registration failed:', error);
-    }
+    return result;
   };
 
   return (
     <>
+      {contextHolder}
       <BackToHome />
-      <Row justify="center" align="middle" style={{ minHeight: '100vh', background: '#fafafa' }}>
+      <Row justify="center" align="middle" style={{ minHeight: '100vh', background: '#fafafa' }} className='register-page'>
         <Card style={{ width: 400, borderRadius: 10, boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
           <Title level={2} style={{ textAlign: 'center', marginBottom: 0 }}>Sign Up</Title>
           <Text type="secondary" style={{ display: 'block', textAlign: 'center', marginBottom: 24 }}>
@@ -33,11 +84,19 @@ const RegisterPage: FC = () => {
 
           <Form layout="vertical" onFinish={onFinish}>
             <Form.Item
-              label={<span style={{ color: '#333333' }}>Full Name</span>}
-              name="fullName"
-              rules={[{ required: true, message: 'Please input your full name!' }]}
+              label={<span style={{ color: '#333333' }}>First Name</span>}
+              name="firstName"
+              rules={[{ required: true, message: 'Please input your first name!' }]}
             >
-              <Input placeholder="John Doe" />
+              <Input placeholder="Nam" />
+            </Form.Item>
+
+            <Form.Item
+              label={<span style={{ color: '#333333' }}>Last Name</span>}
+              name="lastName"
+              rules={[{ required: true, message: 'Please input your last name!' }]}
+            >
+              <Input placeholder="Nguyen" />
             </Form.Item>
 
             <Form.Item
@@ -49,6 +108,24 @@ const RegisterPage: FC = () => {
               ]}
             >
               <Input placeholder="user@gmail.com" />
+            </Form.Item>
+
+            <Form.Item
+              label={<span style={{ color: '#333333' }}>Phone Number</span>}
+              name="phoneNumber"
+              rules={[
+                { required: true, message: 'Please input your phone number!' },
+              ]}
+            >
+              <Input placeholder='1900561252' style={{ width: '100%' }} />
+            </Form.Item>
+
+            <Form.Item
+              label={<span style={{ color: '#333333' }}>Address</span>}
+              name="address"
+              rules={[{ required: true, message: 'Please input your address!' }]}
+            >
+              <Input placeholder="Viet Nam" />
             </Form.Item>
 
             <Form.Item
@@ -86,6 +163,7 @@ const RegisterPage: FC = () => {
                 type="primary"
                 htmlType="submit"
                 block
+                loading={isLoading && { icon: <SyncOutlined spin /> }}
                 style={{
                   background: 'rgb(0, 214, 144)',
                   border: 'none',

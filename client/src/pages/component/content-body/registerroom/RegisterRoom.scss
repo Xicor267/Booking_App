@@ -32,7 +32,6 @@
 
     .ant-picker,
     .ant-select {
-
       .ant-picker-input,
       .ant-select-selector {
         border: none !important;
@@ -59,6 +58,53 @@
 
     &:hover {
       background-color: #2cc084;
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+
+    .register-room--cards-container {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .register-room--card {
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .check-availability-btn {
+      margin-left: 0;
+      margin-top: 16px;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px;
+
+    .booking-room-card {
+      .booking-room-card--text {
+        font-size: 12px;
+      }
+
+      .ant-picker-input,
+      .ant-select-selector {
+        font-size: 14px;
+      }
+    }
+
+    .check-availability-btn {
+      font-size: 14px;
+      height: 40px;
     }
   }
 }
