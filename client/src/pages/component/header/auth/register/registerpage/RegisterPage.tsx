@@ -48,7 +48,7 @@ const RegisterPage: FC = () => {
 
   const onFinish = async (values: any) => {
     setIsLoading(true);
-    const result = await authService.addUser(values)
+    const result = await authService.signUpUser(values)
       .then(result => {
         console.log('SUCCESS!', result);
         dispatch(showNotification({
@@ -56,7 +56,7 @@ const RegisterPage: FC = () => {
           description: "You have successfully registered an account. Please check your email for verification.",
           icon: <CheckOutlined style={{ background: '#52c41a', borderRadius: '50%', color: '#fff' }} />,
         }));
-        navigate('/verify-account');
+        navigate('/verify-account', { state: { email: values?.email } });
       }).catch((error) => {
         console.error('FAILED...', error.text);
         dispatch(showNotification({
