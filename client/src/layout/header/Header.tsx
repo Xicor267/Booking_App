@@ -1,6 +1,10 @@
 import { MenuOutlined } from '@ant-design/icons';
 import { Button, Drawer, Flex, Grid } from 'antd';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Profile } from '~/pages/component/header/profile/Profile';
+import { setUser } from '~/redux/slice/user/userSlice';
+import { RootState } from '~/redux/store';
 import { Auth } from '../../pages/component/header/auth';
 import { LanguageSelector } from '../../pages/component/header/languageselector/LanguageSelector';
 import { Logo } from '../../pages/component/header/logo/Logo';
@@ -11,6 +15,15 @@ import './Header.scss';
 export const Header: FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const screens = Grid.useBreakpoint();
+  const { isAuthenticated } = useSelector((state: RootState) => state.users);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      dispatch(setUser(JSON.parse(storedUser)));
+    }
+  }, [dispatch]);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -26,7 +39,7 @@ export const Header: FC = () => {
             <SearchHeader />
             <LanguageSelector />
           </Flex>
-          <Auth />
+          {isAuthenticated ? <Profile /> : <Auth />}
         </>
       ) : (
         <>
@@ -45,7 +58,7 @@ export const Header: FC = () => {
             open={isDrawerOpen}
           >
             <LanguageSelector />
-            <Auth />
+            {isAuthenticated ? <Profile /> : <Auth />}
           </Drawer>
         </>
       )}

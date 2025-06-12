@@ -39,7 +39,7 @@ const authService = {
       password: hashPassword(data.password),
     }
 
-    return axiosClient.post("/user/signin", secureData);
+    return axiosClient.post("/user/signin", data);
   }
 }
 

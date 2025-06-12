@@ -8,6 +8,7 @@ import authService from '~/api/content/auth/authApi';
 import { hideNotification, showNotification } from '~/redux/slice/notificationSlice';
 import { RootState } from '~/redux/store';
 import { BackToHome } from '../../backtohome/BackToHome';
+import { setUser } from '~/redux/slice/user/userSlice';
 
 const { Title, Text } = Typography;
 
@@ -39,6 +40,8 @@ const LoginPage: FC = () => {
           description: "You have successfully logged into your account.",
           icon: <CheckOutlined style={{ background: '#52c41a', borderRadius: '50%', color: '#fff' }} />,
         }));
+        dispatch(setUser(result))
+        localStorage.setItem('user', JSON.stringify(result));
         navigate('/');
       }).catch((error) => {
         console.error('FAILED...', error.text);

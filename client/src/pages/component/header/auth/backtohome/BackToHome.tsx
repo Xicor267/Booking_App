@@ -8,7 +8,7 @@ export const BackToHome: FC = () => {
 
   return (
     <Button
-      icon={<HomeOutlined />}
+      icon={<HomeOutlined style={{ paddingTop: 12 }} />}
       onClick={() => navigate('/')}
       style={{
         position: 'fixed',
