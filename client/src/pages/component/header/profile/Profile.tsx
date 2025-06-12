@@ -112,7 +112,7 @@ export const Profile: FC = () => {
             <Button
               type="primary"
               danger
-              icon={<LogoutOutlined />}
+              icon={<LogoutOutlined style={{ paddingTop: 12 }} />}
               onClick={handleSignOut}
               size="large"
               style={{ width: '100%' }}

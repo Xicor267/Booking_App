@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import authService from '~/api/content/auth/authApi';
 import { hideNotification, showNotification } from '~/redux/slice/notificationSlice';
+import { setUser } from '~/redux/slice/user/userSlice';
 import { RootState } from '~/redux/store';
 import { BackToHome } from '../../backtohome/BackToHome';
-import { setUser } from '~/redux/slice/user/userSlice';
 
 const { Title, Text } = Typography;
 
@@ -18,6 +18,7 @@ const LoginPage: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  // const [form] = Form.useForm();
 
   useEffect(() => {
     if (visible) {
@@ -31,6 +32,15 @@ const LoginPage: FC = () => {
     }
   }, [visible, api, message, description]);
 
+  // useEffect(() => {
+  //   const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
+  //   if (storedUser) {
+  //     const user = JSON.parse(storedUser);
+  //     form.setFieldsValue({ email: user.email })
+  //     dispatch(setUser(user));
+  //   }
+  // }, [dispatch, form])
+
   const onFinish = (values: any) => {
     const result = authService.signInUser(values)
       .then(result => {
@@ -42,6 +52,13 @@ const LoginPage: FC = () => {
         }));
         dispatch(setUser(result))
         localStorage.setItem('user', JSON.stringify(result));
+
+        // if (values.rememberMe) {
+        //   localStorage.setItem('user', JSON.stringify(result)); // Store in localStorage
+        // } else {
+        //   sessionStorage.setItem('user', JSON.stringify(result)); // Store in sessionStorage
+        // }
+
         navigate('/');
       }).catch((error) => {
         console.error('FAILED...', error.text);
@@ -85,7 +102,7 @@ const LoginPage: FC = () => {
               <Input.Password placeholder="Enter your password" />
             </Form.Item>
 
-            <Form.Item>
+            <Form.Item name="rememberMe" valuePropName='checked' initialValue={false}>
               <Checkbox>Remember Me</Checkbox>
               <Link
                 to="/forgot-password"

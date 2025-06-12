@@ -1,7 +1,6 @@
 import { IUserType } from "~/api/types/register/IUserType";
 import { IVerifyCodeType } from "~/api/types/register/IVerifyCodeType";
 import axiosClient from "../../helper/axios/axiosClient";
-import CryptoJS from 'crypto-js';
 
 const authService = {
   getUser: (): Promise<IUserType[]> => {
@@ -13,17 +12,18 @@ const authService = {
   },
 
   signUpUser: (data: IUserType): Promise<IUserType> => {
-    const obfuscatePayload = (data: any) => {
-      const payload = { ...data };
-      
-      // if (payload.password) {
-      //   payload.password = btoa(payload); // Base64 encode
-      // }
-      
-      return btoa(payload);
+    const payload = {
+      ...data,
+      // firstName: btoa(data.firstName),
+      // lastName: btoa(data.lastName),
+      email: btoa(data.email),
+      phoneNumber: data.phoneNumber ? btoa(data.phoneNumber) : null,
+      address: data.address ? btoa(data.address) : null,
+      password: btoa(data.password),
+      confirmPassword: btoa(data.confirmPassword)
     };
- 
-    return axiosClient.post("/user/signup", obfuscatePayload(data));
+
+    return axiosClient.post("/user/signup", payload);
   },
 
   verifyCode: (data: IVerifyCodeType): Promise<IVerifyCodeType> => {
@@ -31,15 +31,12 @@ const authService = {
   },
 
   signInUser: (data: IUserType): Promise<IUserType> => {
-    const hashPassword = (password: string): string => {
-      return CryptoJS.SHA256(password).toString();
+    const encodedData = {
+      email: btoa(data.email),
+      password: btoa(data.password)
     };
-    const secureData = {
-      ...data,
-      password: hashPassword(data.password),
-    }
 
-    return axiosClient.post("/user/signin", data);
+    return axiosClient.post("/user/signin", encodedData);
   }
 }
 
