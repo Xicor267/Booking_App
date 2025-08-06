@@ -42,6 +42,7 @@ const LoginPage: FC = () => {
   // }, [dispatch, form])
 
   const onFinish = (values: any) => {
+    setIsLoading(true)
     const result = authService.signInUser(values)
       .then(result => {
         console.log('SUCCESS!', result);

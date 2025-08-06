@@ -1,6 +1,7 @@
 import { IUserType } from "~/api/types/register/IUserType";
 import { IVerifyCodeType } from "~/api/types/register/IVerifyCodeType";
 import axiosClient from "../../helper/axios/axiosClient";
+import { IUpdatePassword } from "~/api/types/register/IUpdatePassword";
 
 const authService = {
   getUser: (): Promise<IUserType[]> => {
@@ -37,6 +38,14 @@ const authService = {
     };
 
     return axiosClient.post("/user/signin", encodedData);
+  },
+
+  forgotPassword: (email: string): Promise<IVerifyCodeType> => {
+    return axiosClient.post("/user/reset-password", email)
+  },
+
+  resetPassword: (data: IUpdatePassword): Promise<IUpdatePassword> => {
+    return axiosClient.post("/user/reset-password/update", data)
   }
 }
 

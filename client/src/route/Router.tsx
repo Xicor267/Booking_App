@@ -7,6 +7,7 @@ import { RoomList } from '~/pages/component/content-body/roomlist/RoomList'
 import ForgotPasswordPage from '~/pages/component/header/auth/forgotpassword/ForgotPasswordPage'
 import LoginPage from '~/pages/component/header/auth/login/loginpage/LoginPage'
 import RegisterPage from '~/pages/component/header/auth/register/registerpage/RegisterPage'
+import ResetPasswordPage from '~/pages/component/header/auth/resetPassword/ResetPasswordPage'
 import VerifyAccountPage from '~/pages/component/header/auth/verifyaccount/VerifyAccountPage'
 import { RootState } from '~/redux/store'
 
@@ -26,6 +27,7 @@ export const RouteConfig: FC = () => {
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/forgot-password' element={<ForgotPasswordPage />} />
             <Route path='/verify-account' element={<VerifyAccountPage />} />
+            <Route path='/reset-password' element={<ResetPasswordPage />} />
           </>
         }
       </Routes>
